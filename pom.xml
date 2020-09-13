@@ -22,10 +22,6 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
-	<scm>
-		<developerConnection>scm:git:git@github.com:miguel-ossa/pet-clinic.git</developerConnection>
-		<tag>pet-clinic-0.0.1</tag>
-	</scm>
 	<build>
 		<plugins>
 			<plugin>
@@ -43,6 +39,9 @@
 			</plugin>
 		</plugins>
 	</build>
+	<scm>
+		<developerConnection>scm:git:git@github.com:miguel-ossa/pet-clinic.git</developerConnection>
+	</scm>
 
 
 </project>

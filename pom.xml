@@ -23,8 +23,8 @@
 		<java.version>11</java.version>
 	</properties>
 	<scm>
-		<connection>scm:git:https://github.com/miguel-ossa/pet-clinic.git</connection>
-		<url>https://github.com/miguel-ossa/pet-clinic.git</url>
+		<connection>scm:git:https://miguel-ossa:ZmxQEqyWt2ehKD2W@github.com/miguel-ossa/pet-clinic.git</connection>
+		<url>https://miguel-ossa:ZmxQEqyWt2ehKD2W@github.com/miguel-ossa/pet-clinic.git</url>
 		<tag>pet-clinic-0.0.1</tag>
 	</scm>
 	<build>

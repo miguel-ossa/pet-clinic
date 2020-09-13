@@ -1,4 +1,4 @@
-package guru.springframework.petclinic.data;
+package guru.springframework.petclinic;
 
 import org.springframework.boot.SpringApplication;
 

@@ -1,6 +1,7 @@
-package guru.springframework.petclinic.model;
+package guru.springframework.petclinic.data.model;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Pet {
 
@@ -25,6 +26,11 @@ public class Pet {
 	}
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
+	}
+	public int getAgeInYears() {
+		LocalDate currentDate = LocalDate.now();
+		Period diff = Period.between(birthDate, currentDate);
+	    return diff.getYears(); 
 	}
 	
 }

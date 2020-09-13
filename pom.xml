@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>guru.springframework</groupId>
 	<artifactId>pet-clinic</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<packaging>pom</packaging>
 	<name>pet-clinic</name>
 	<description>Spring pet clinic</description>
@@ -44,7 +44,7 @@
 	<!-- <developerConnection>scm:git:git@github.com:miguel-ossa/pet-clinic.git</developerConnection> -->
 		 <url>https://github.com/migue-ossa/pet-clinic</url>
         <connection>scm:git:https://github.com/miguel-ossa/pet-clinic.git</connection>
-	  <tag>HEAD</tag>
+	  <tag>pet-clinic-0.0.2</tag>
   </scm>
 
 

@@ -5,6 +5,10 @@ import java.time.Period;
 
 public class Pet extends BaseEntity {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2220364868046453773L;
 	private PetType petType;
 	private Owner owner;
 	private LocalDate birthDate;

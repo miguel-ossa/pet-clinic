@@ -46,4 +46,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 		return null;
 	}
 
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return super.getCount();
+	}
+
 }

@@ -40,4 +40,10 @@ public class PetTypeServiceMap extends AbstractMapService<PetType, Long> impleme
 		super.delete(object);
 	}
 
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return super.getCount();
+	}
+
 }

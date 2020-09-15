@@ -40,4 +40,10 @@ public class VetServiceMap  extends AbstractMapService<Vet, Long> implements Vet
 		super.delete(object);
 	}
 
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return super.getCount();
+	}
+
 }

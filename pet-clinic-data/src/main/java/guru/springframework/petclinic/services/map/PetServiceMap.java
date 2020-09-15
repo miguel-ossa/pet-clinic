@@ -40,4 +40,10 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 		super.delete(object);
 	}
 
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return super.getCount();
+	}
+
 }

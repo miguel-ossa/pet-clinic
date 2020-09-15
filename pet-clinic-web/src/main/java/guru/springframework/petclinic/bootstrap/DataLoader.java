@@ -1,9 +1,12 @@
 package guru.springframework.petclinic.bootstrap;
 
+import java.time.LocalDate;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import guru.springframework.petclinic.model.Owner;
+import guru.springframework.petclinic.model.Pet;
 import guru.springframework.petclinic.model.PetType;
 import guru.springframework.petclinic.model.Vet;
 import guru.springframework.petclinic.services.OwnerService;
@@ -41,12 +44,34 @@ public class DataLoader implements CommandLineRunner {
 		Owner owner1 = new Owner();
 		owner1.setFirstName("Peter");
 		owner1.setLastName("Parker");
+		owner1.setAddress("123 Brick");
+		owner1.setCity("California");
+		owner1.setTelephone("555 55 55");
+		
+		Pet peterPet = new Pet();
+		peterPet.setPetType(savedDogPetType);
+		peterPet.setOwner(owner1);
+		peterPet.setName("Dick");
+		peterPet.setBirthDate(LocalDate.now());
+		
+		owner1.getPets().add(peterPet);
 		
 		ownerService.save(owner1);
 		
 		Owner owner2 = new Owner();
 		owner2.setFirstName("Michael");
 		owner2.setLastName("Flynn");
+		owner2.setAddress("54 Picadilly");
+		owner2.setCity("Texas");
+		owner2.setTelephone("555 55 51");
+		
+		Pet michaelPet = new Pet();
+		michaelPet.setPetType(savedCatPetType);
+		michaelPet.setOwner(owner1);
+		michaelPet.setName("Mosqui");
+		michaelPet.setBirthDate(LocalDate.now());
+		
+		owner2.getPets().add(michaelPet);
 		
 		ownerService.save(owner2);
 		
@@ -62,9 +87,13 @@ public class DataLoader implements CommandLineRunner {
 		
 		vetService.save(vet2);
 		
-		
-		
 		System.out.println("Number of owners: " + ownerService.getCount());
+		ownerService.findAll().forEach(owner -> {
+			System.out.print("The owner " + owner.getFirstName() + " has the following pets: ");
+			owner.getPets().forEach(pet -> {
+				System.out.println(pet.getName() +  " and it is a " + pet.getPetType().getName());
+			});
+		});
 		System.out.println("Number of vets: " + vetService.getCount());
 		
 		System.out.println("Ending DataLoader...");

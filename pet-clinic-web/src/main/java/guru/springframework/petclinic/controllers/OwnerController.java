@@ -9,18 +9,23 @@ import guru.springframework.petclinic.services.OwnerService;
 @Controller
 @RequestMapping("/owners")
 public class OwnerController {
-	
+
 	private final OwnerService ownerService;
-	
+
 	public OwnerController(OwnerService ownerService) {
 		super();
 		this.ownerService = ownerService;
 	}
 
-	@RequestMapping({"", "/", "owners.html", "/index", "/index.html"})
+	@RequestMapping({ "", "/", "owners.html", "/index", "/index.html" })
 	public String listOwners(Model model) {
 		model.addAttribute("owners", ownerService.findAll());
-		
+
 		return "owners/index";
+	}
+
+	@RequestMapping("/find")
+	public String findOwners() {
+		return "notImplemented";
 	}
 }

@@ -3,10 +3,15 @@ package guru.springframework.petclinic.services.springdatajpa;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
 import guru.springframework.petclinic.model.Specialty;
 import guru.springframework.petclinic.repositories.SpecialtyRepository;
 import guru.springframework.petclinic.services.SpecialtyService;
 
+@Service
+@Profile("springdatajpa")
 public class SpecialtySDJpaService implements SpecialtyService {
 
 	private final SpecialtyRepository specialtyRepository;

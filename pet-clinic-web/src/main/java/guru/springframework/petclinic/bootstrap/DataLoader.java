@@ -1,6 +1,7 @@
 package guru.springframework.petclinic.bootstrap;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -26,8 +27,6 @@ public class DataLoader implements CommandLineRunner {
 	private final SpecialtyService specialtyService;
 	private final VisitService visitService;
 
-
-
 	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
 			SpecialtyService specialtyService, VisitService visitService) {
 		super();
@@ -43,7 +42,7 @@ public class DataLoader implements CommandLineRunner {
 		System.out.println("Running DataLoader...");
 
 		int count = petTypeService.findAll().size();
-		
+
 		if (count == 0) {
 			loadData();
 		}
@@ -106,12 +105,12 @@ public class DataLoader implements CommandLineRunner {
 		owner2.getPets().add(michaelPet);
 
 		ownerService.save(owner2);
-		
+
 		Visit catVisit = new Visit();
 		catVisit.setPet(michaelPet);
 		catVisit.setDate(LocalDate.now());
 		catVisit.setDescription("Sneezy kitty");
-		
+
 		visitService.save(catVisit);
 
 		Vet vet1 = new Vet();
@@ -129,10 +128,12 @@ public class DataLoader implements CommandLineRunner {
 		vetService.save(vet2);
 
 		System.out.println("Number of owners: " + ownerService.getCount());
+
+
+		// TODO pendiente de resolver orden de los println con Data JPA
 		ownerService.findAll().forEach(owner -> {
-			System.out.print("The owner " + owner.getFirstName() + " has the following pets: ");
 			owner.getPets().forEach(pet -> {
-				System.out.println(pet.getName() + " and it is a " + pet.getPetType().getName());
+				System.out.println("The owner " + owner.getFirstName() + " has a " + pet.getPetType().getName() + " named '" + pet.getName() + "'");
 			});
 		});
 		System.out.println("Number of vets: " + vetService.getCount());

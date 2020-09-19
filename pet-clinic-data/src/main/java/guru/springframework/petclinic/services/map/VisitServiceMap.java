@@ -2,23 +2,23 @@ package guru.springframework.petclinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import guru.springframework.petclinic.model.Visit;
 import guru.springframework.petclinic.services.VisitService;
 
 @Service
+@Profile({"default", "map"})
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
 
 	@Override
 	public Set<Visit> findAll() {
-		// TODO Auto-generated method stub
 		return super.findAll();
 	}
 
 	@Override
 	public Visit findById(Long id) {
-		// TODO Auto-generated method stub
 		return super.findById(id);
 	}
 
@@ -34,19 +34,16 @@ public class VisitServiceMap extends AbstractMapService<Visit, Long> implements 
 
 	@Override
 	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
 		super.deleteById(id);
 	}
 
 	@Override
 	public void delete(Visit object) {
-		// TODO Auto-generated method stub
 		super.delete(object);
 	}
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return super.getCount();
 	}
 

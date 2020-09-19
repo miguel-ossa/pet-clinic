@@ -10,13 +10,6 @@ import guru.springframework.petclinic.services.VisitService;
 @Service
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
 
-	private final VisitService visitService;
-
-	public VisitServiceMap(VisitService visitService) {
-		super();
-		this.visitService = visitService;
-	}
-
 	@Override
 	public Set<Visit> findAll() {
 		// TODO Auto-generated method stub

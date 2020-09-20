@@ -52,14 +52,6 @@ public class DataLoader implements CommandLineRunner {
 
 	private void loadData() {
 
-		PetType dog = new PetType();
-		dog.setName("Dog");
-		PetType savedDogPetType = petTypeService.save(dog);
-
-		PetType cat = new PetType();
-		cat.setName("Cat");
-		PetType savedCatPetType = petTypeService.save(cat);
-
 		Specialty radiology = new Specialty();
 		radiology.setDescription("Radiology");
 		Specialty savedRadiology = specialtyService.save(radiology);
@@ -73,11 +65,15 @@ public class DataLoader implements CommandLineRunner {
 		Specialty savedDentistry = specialtyService.save(dentistry);
 
 		Owner owner1 = new Owner();
-		owner1.setFirstName("Peter");
+		owner1.setFirstName("PeterDog");
 		owner1.setLastName("Parker");
 		owner1.setAddress("123 Brick");
 		owner1.setCity("California");
 		owner1.setTelephone("555 55 55");
+
+		PetType dog = new PetType();
+		dog.setName("Dog");
+		PetType savedDogPetType = petTypeService.save(dog);
 
 		Pet peterPet = new Pet();
 		peterPet.setPetType(savedDogPetType);
@@ -90,15 +86,19 @@ public class DataLoader implements CommandLineRunner {
 		ownerService.save(owner1);
 
 		Owner owner2 = new Owner();
-		owner2.setFirstName("Michael");
+		owner2.setFirstName("MichaelCat");
 		owner2.setLastName("Flynn");
 		owner2.setAddress("54 Picadilly");
 		owner2.setCity("Texas");
 		owner2.setTelephone("555 55 51");
 
+		PetType cat = new PetType();
+		cat.setName("Cat");
+		PetType savedCatPetType = petTypeService.save(cat);
+
 		Pet michaelPet = new Pet();
 		michaelPet.setPetType(savedCatPetType);
-		michaelPet.setOwner(owner1);
+		michaelPet.setOwner(owner2);
 		michaelPet.setName("Mosqui");
 		michaelPet.setBirthDate(LocalDate.now());
 
@@ -129,13 +129,14 @@ public class DataLoader implements CommandLineRunner {
 
 		System.out.println("Number of owners: " + ownerService.getCount());
 
-
-		// TODO pendiente de resolver orden de los println con Data JPA
 		ownerService.findAll().forEach(owner -> {
 			owner.getPets().forEach(pet -> {
-				System.out.println("The owner " + owner.getFirstName() + " has a " + pet.getPetType().getName() + " named '" + pet.getName() + "'");
+				System.out.println(owner.getFirstName() + " has a " + pet.getPetType().getName() + " named '"
+						+ pet.getName() + "'");
+
 			});
 		});
+
 		System.out.println("Number of vets: " + vetService.getCount());
 	}
 
